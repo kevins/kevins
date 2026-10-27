@@ -5,7 +5,7 @@
 <h3 align="center">Dynamics 365 · Dataverse · Power Apps</h3>
 
 <p align="center">
-  I build tools for the fiddly parts of Power Platform.<br />
+  I develop solutions that bridge Power Platform's gaps.<br />
   Browser bookmarklets, platform controls, and practical developer utilities.
 </p>
 
