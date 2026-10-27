@@ -23,13 +23,13 @@
   <tr>
     <td width="50%" valign="top">
       <sub>01 / LABELS &amp; TRANSLATION</sub>
-      <h3><a href="https://github.com/kevins/DynamicsTranslator">Dynamics Translator ↗</a></h3>
+      <h3><a href="https://github.com/kevins/DynamicsTranslator">Dynamics Translator</a></h3>
       <p>Edit labels where they appear in Dynamics 365 and Power Apps, or work in bulk with an Excel-style translation workbench.</p>
       <p><code>TypeScript</code> <code>Excel / CSV</code></p>
     </td>
     <td width="50%" valign="top">
       <sub>02 / NATIVE FEEL</sub>
-      <h3><a href="https://github.com/kevins/NToNMultiSelect">N:N Multi Select ↗</a></h3>
+      <h3><a href="https://github.com/kevins/NToNMultiSelect">N:N Multi Select</a></h3>
       <p>A native-feeling picker for Dataverse many-to-many relationships. Search, select, and save immediately.</p>
       <p><code>PCF</code> <code>TypeScript</code></p>
     </td>
@@ -37,13 +37,13 @@
   <tr>
     <td width="50%" valign="top">
       <sub>03 / SOLUTION LAYERS</sub>
-      <h3><a href="https://github.com/kevins/UnmanagedLayerScanner">Unmanaged Layer Scanner ↗</a></h3>
+      <h3><a href="https://github.com/kevins/UnmanagedLayerScanner">Unmanaged Layer Scanner</a></h3>
       <p>Find unmanaged layers over managed components, compare their changes, and remove selected active customizations.</p>
       <p><code>JavaScript</code> <code>Bookmarklet</code></p>
     </td>
     <td width="50%" valign="top">
       <sub>04 / DATA EXPLORATION</sub>
-      <h3><a href="https://github.com/kevins/SQLAdvancedFind">SQL Advanced Find ↗</a></h3>
+      <h3><a href="https://github.com/kevins/SQLAdvancedFind">SQL Advanced Find</a></h3>
       <p>Query, explore, and edit Dataverse data with SQL inside your existing browser session.</p>
       <p><code>SQL → FetchXML</code> <code>Experimental</code></p>
     </td>
@@ -51,13 +51,13 @@
   <tr>
     <td width="50%" valign="top">
       <sub>05 / USER CONTEXT</sub>
-      <h3><a href="https://github.com/kevins/DataverseImpersonator">Dataverse Impersonator ↗</a></h3>
+      <h3><a href="https://github.com/kevins/DataverseImpersonator">Dataverse Impersonator</a></h3>
       <p>Test model-driven apps under another user's Dataverse security context in an isolated desktop window.</p>
       <p><code>PowerShell</code> <code>WebView2</code></p>
     </td>
     <td width="50%" valign="top">
       <sub>06 / DEVELOPER SHORTCUTS</sub>
-      <h3><a href="https://github.com/kevins/LevelUpBookmarklet">Level Up Bookmarklet ↗</a></h3>
+      <h3><a href="https://github.com/kevins/LevelUpBookmarklet">Level Up Bookmarklet</a></h3>
       <p>Familiar Level Up developer tools in a browser bookmark, with additional Power Platform utilities.</p>
       <p><code>TypeScript</code> <code>Bookmarklet</code></p>
     </td>
