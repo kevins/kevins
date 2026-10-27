@@ -67,14 +67,3 @@
     </td>
   </tr>
 </table>
-
-<sub>Level Up Bookmarklet adapts <a href="https://github.com/rajyraman/Levelup-for-Dynamics-CRM">@rajyraman's Level Up</a>.</sub>
-
-<br />
-
----
-
-<p align="center">
-  <strong>Useful at the point of work.</strong><br />
-  <sub>Less hunting through menus. More getting things done.</sub>
-</p>
