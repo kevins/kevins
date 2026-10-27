@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:103d3d,100:2dd4bf&amp;height=240&amp;section=header&amp;text=KV&amp;fontSize=76&amp;fontColor=e6fff8&amp;fontAlignY=38&amp;desc=Beyond%20the%20defaults.&amp;descAlignY=61&amp;descSize=23&amp;animation=twinkling" alt="KV — Beyond the defaults." />
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:103d3d,100:2dd4bf&amp;height=240&amp;section=header&amp;text=KV&amp;fontSize=76&amp;fontColor=e6fff8&amp;fontAlignY=38&amp;desc=Beyond%20the%20defaults.&amp;descAlignY=61&amp;descSize=23" alt="KV — Beyond the defaults." />
 </p>
 
 <h3 align="center">Dynamics 365 · Dataverse · Power Apps</h3>
@@ -15,10 +15,6 @@
   <img src="https://img.shields.io/badge/PowerShell-101820?style=for-the-badge" alt="PowerShell" />
   <img src="https://img.shields.io/badge/PCF-101820?style=for-the-badge" alt="PCF" />
   <img src="https://img.shields.io/badge/Bookmarklets-101820?style=for-the-badge" alt="Bookmarklets" />
-</p>
-
-<p align="center">
-  <img width="600" src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;size=24&amp;duration=2600&amp;pause=1200&amp;color=5EEAD4&amp;center=true&amp;vCenter=true&amp;width=600&amp;height=48&amp;lines=Inspect+the+layers.;Query+the+data.;Build+the+missing+pieces." alt="Inspect the layers. Query the data. Build the missing pieces." />
 </p>
 
 ## The toolkit
