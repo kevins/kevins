@@ -1,4 +1,0 @@
-# The built site (GitHub Actions builds and publishes it; it is never committed)
-/_site/
-/_preview/
-node_modules/
