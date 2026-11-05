@@ -1,0 +1,66 @@
+{
+  "owner": "kevins",
+  "ownerId": 174727,
+  "site": {
+    "title": "KV Toolkit",
+    "author": "KV",
+    "eyebrow": "Dynamics 365 · Dataverse · Power Apps",
+    "headline": "Tools that bridge Power Platform’s gaps.",
+    "intro": "Browser bookmarklets, platform controls and developer utilities.",
+    "description": "Bookmarklets and tools for Dynamics 365, Dataverse and Power Apps by KV. Drag a button onto your favourites bar to install a tool.",
+    "disclaimer": "Personal projects by KV, not affiliated with or endorsed by Microsoft. Dynamics 365, Dataverse and Power Apps are trademarks of Microsoft.",
+    "url": "https://kevins.github.io/kevins/"
+  },
+  "exclude": [],
+  "order": ["DynamicsTranslator", "UnmanagedLayerScanner", "SQLAdvancedFind", "LevelUpBookmarklet", "NToNMultiSelect", "DataverseImpersonator"],
+  "tools": {
+    "DynamicsTranslator": {
+      "name": "Dynamics Translator",
+      "icon": "translate",
+      "tagline": "Edit labels where they appear in Dynamics 365 and Power Apps, or work in bulk with an Excel-style translation workbench.",
+      "bookmarklet": { "path": "dist/translator.bookmarklet.txt", "label": "Translator" },
+      "image": { "path": "docs/gallery/DynamicsTranslator-thumbnail.png", "alt": "Dynamics Translator marking the labels of a Project record, with a field's translation popup open" },
+      "video": { "path": "docs/gallery/DynamicsTranslator-demo.mp4" }
+    },
+    "UnmanagedLayerScanner": {
+      "name": "Unmanaged Layer Scanner",
+      "icon": "layers",
+      "tagline": "Find unmanaged layers over managed components, compare their changes, and remove selected active customizations.",
+      "bookmarklet": { "path": "layer-scanner.bookmarklet.txt", "label": "Unmanaged layers" },
+      "image": { "path": "docs/gallery/UnmanagedLayerScanner-thumbnail.png", "alt": "Unmanaged Layer Scanner listing components with an unmanaged layer" },
+      "video": { "path": "docs/gallery/UnmanagedLayerScanner-demo.mp4" }
+    },
+    "SQLAdvancedFind": {
+      "name": "SQL Advanced Find",
+      "icon": "database",
+      "tagline": "Query, explore, and edit Dataverse data with SQL inside your existing browser session.",
+      "credit": "SQL Advanced Find is inspired by SQL 4 CDS by Mark Carrington and bundles Preact (MIT License).",
+      "bookmarklet": { "path": "SQLAdvancedFind.js", "label": "SQL Advanced Find" },
+      "image": { "url": "https://github.com/user-attachments/assets/f04cf2ba-30b9-44c8-98c0-ae1c7ce5af4a", "alt": "SQL Advanced Find: a SQL query and its results in an editable grid", "width": 1367, "height": 860 }
+    },
+    "LevelUpBookmarklet": {
+      "name": "Level Up Bookmarklet",
+      "slug": "level-up",
+      "icon": "star",
+      "tagline": "Familiar Level Up developer tools in a browser bookmark, with additional Power Platform utilities.",
+      "credit": "Level Up Bookmarklet is based on Level Up for Dynamics 365 / Power Apps by Natraj Yegnaraman and its contributors (MIT License). It is not the official Level Up project.",
+      "bookmarklet": { "path": "LevelUpBookmarklet.js", "label": "Level Up" },
+      "image": { "path": "screenshot.png", "alt": "The Level Up sidebar in a Dynamics 365 form" }
+    },
+    "NToNMultiSelect": {
+      "name": "N:N Multi-Select",
+      "icon": "select",
+      "tagline": "A native-feeling picker for Dataverse many-to-many relationships. Search, select, and save immediately.",
+      "bookmarklet": false,
+      "image": { "path": "docs/gallery/NToNMultiSelect-thumbnail.png", "alt": "N:N Multi-Select on a model-driven form" },
+      "video": { "path": "docs/gallery/NToNMultiSelect-demo.mp4" }
+    },
+    "DataverseImpersonator": {
+      "name": "Dataverse Impersonator",
+      "icon": "user",
+      "tagline": "Test model-driven apps under another user's Dataverse security context in an isolated desktop window.",
+      "bookmarklet": false,
+      "image": { "url": "https://github.com/user-attachments/assets/668e69c8-8001-46e5-adb2-974706144d91", "alt": "Dataverse Impersonator: a model-driven app opened as another user", "width": 975, "height": 597 }
+    }
+  }
+}

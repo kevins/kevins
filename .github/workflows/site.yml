@@ -1,0 +1,125 @@
+# Builds the toolkit page (site/) from the public repositories of this account and publishes it on GitHub Pages.
+#
+# It runs on every push to main that changes the site, every hour (so a new version of a tool reaches its drag button
+# by itself), and on demand (Actions > Toolkit site > Run workflow). A run publishes only when something changed: it
+# compares the content hash of the new build with the one in the published site's build.json.
+#
+# One-time setup: Settings > Pages > Build and deployment > Source: GitHub Actions.
+name: Toolkit site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'package.json'
+      - '.github/workflows/site.yml'
+  schedule:
+    - cron: '41 * * * *' # hourly, away from the busy top of the hour
+  # Also how a tool's repository can ask for an immediate rebuild (see site/README.md).
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Publish even if nothing changed
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+# One build and publish at a time; a run that starts while another publishes waits for it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      publish: ${{ steps.compare.outputs.publish }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Test the build script
+        run: npm test
+
+      - name: Find the site's address
+        id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Build the site from the repositories
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+
+      - name: Compare with the published site
+        id: compare
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force }}
+        run: |
+          built=$(jq -r .contentHash _site/build.json)
+          published=$(curl -fsSL --retry 2 --max-time 20 "$BASE_URL/build.json?run=$GITHUB_RUN_ID" 2>/dev/null | jq -r '.contentHash // empty' 2>/dev/null || true)
+          echo "Built ${built:0:12}, published ${published:-nothing}"
+          if [ "$FORCE" = "true" ] || [ "$built" != "$published" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing changed since the published build, so nothing was published." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload the site
+        if: steps.compare.outputs.publish == 'true'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    # Only main may publish (the github-pages environment refuses other branches).
+    if: needs.build.outputs.publish == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+  # GitHub switches off a public repository's workflows after 60 days without activity, and then this workflow would
+  # stop following the tools. Re-enabling it from its own hourly run keeps it on while the repository is quiet. It is a
+  # separate job so that it runs even when a build fails.
+  keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Keep the hourly schedule on
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          workflow="${GITHUB_WORKFLOW_REF%%@*}"
+          workflow="${workflow##*/}"
+          # Only an active workflow is kept on: one disabled by hand while this run waited stays disabled.
+          state=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/${workflow}" --jq .state)
+          if [ "$state" != "active" ]; then
+            echo "The workflow is ${state}; leaving it as it is."
+            exit 0
+          fi
+          gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/${workflow}/enable"

@@ -1,0 +1,16 @@
+{
+  "name": "kv-toolkit-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The KV Toolkit page: KV's Dynamics 365 / Dataverse / Power Apps tools with drag-to-install bookmarklet buttons, rebuilt from GitHub every hour",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node site/build.mjs",
+    "test": "node --test \"site/test/*.test.mjs\"",
+    "serve": "node site/dev/serve.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

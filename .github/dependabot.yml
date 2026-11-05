@@ -1,0 +1,11 @@
+# Keeps the actions pinned in .github/workflows/site.yml up to date: at most one pull request a month, with every
+# update in it.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ['*']
